@@ -2,12 +2,17 @@
 
 #Want to convert the output PRISM ASCII grids to a georeferenced format/netcdfs
 
+i=0;
+waitevery=8;
+
 for infile in /home/data/projects/PRISM/bc_climate/bc_8110_maps/grids/bc_*8110.*
 do
-  echo $infile
-  gdal_translate -of netCDF -a_srs '+proj=longlat +ellps=GRS80 +datum=NAD83 +no_defs' $infile $infile.nc
-  mv -v $infile.nc /home/data/projects/PRISM/bc_climate/bc_8110_maps/grids/netcdfs/
-done
+  (
+      gdal_translate -of netCDF -a_srs '+proj=longlat +ellps=GRS80 +datum=NAD83 +no_defs' $infile $infile.nc;
+      mv $infile.nc /home/data/projects/PRISM/bc_climate/bc_8110_maps/grids/netcdfs/
+  ) & ((i++%waitevery==0)) && wait;
+done >/dev/null 2>&1
+wait;
 
 
 #Precip prep and metadata
