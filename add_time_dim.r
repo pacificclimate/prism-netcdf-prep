@@ -27,4 +27,4 @@ build_PRISM_netcdf_timescale <- function(filename,minyear,maxyear) {
 }
 
 args <- commandArgs(trailingOnly = TRUE)
-build_PRISM_netcdf_timescale(args[1], args[2], args[3])
+build_PRISM_netcdf_timescale(args[1], as.numeric(args[2]), as.numeric(args[3]))
