@@ -66,3 +66,7 @@ done
 
 ncap2 -O -s 'tmax=tmax/100;' ${indir}bc_tmax_8110.nc.prep ${indir}bc_tmax_8110.nc.prep
 ncap2 -O -s 'tmin=tmin/100;' ${indir}bc_tmin_8110.nc.prep ${indir}bc_tmin_8110.nc.prep
+
+mv ${indir}bc_ppt_8110.nc.prep pr_monClim_PRISM_historical_run1_198101-201012.nc
+mv ${indir}bc_tmax_8110.nc.prep tmax_monClim_PRISM_historical_run1_198101-201012.nc
+mv ${indir}bc_tmin_8110.nc.prep tmin_monClim_PRISM_historical_run1_198101-201012.nc
