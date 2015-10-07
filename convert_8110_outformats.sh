@@ -53,7 +53,10 @@ ncatted -O -a axis,lat,c,c,Y $F
 ncatted -O -a axis,lon,c,c,X $F
 ncap2 -O -s 'defdim("bnds",2)' $F $F
 
-R CMD BATCH /home/data/projects/PRISM/code/hg/PRISM/scripts/add_time_dim.r
+
+Rscript add_time_dim.r /home/data/projects/PRISM/bc_climate/bc_8110_maps/grids/netcdfs/bc_ppt_8110.nc.prep 1981 2010
+Rscript add_time_dim.r /home/data/projects/PRISM/bc_climate/bc_8110_maps/grids/netcdfs/bc_tmin_8110.nc.prep 1981 2010
+Rscript add_time_dim.r /home/data/projects/PRISM/bc_climate/bc_8110_maps/grids/netcdfs/bc_tmax_8110.nc.prep 1981 2010
 
 for F in $(ls $indir*.nc.prep)
 do
